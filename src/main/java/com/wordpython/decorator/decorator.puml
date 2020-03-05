@@ -1,0 +1,55 @@
+@startuml
+
+abstract class Drink{
+    + String des
+    - float price
+    {abstract} float cost()
+}
+class Coffee{
+    + float cost()
+}
+class Decorator{
+    - Drink drink
+    + Decorator(Drink obj)
+    + float cost()
+    + String getDes()
+}
+class Espresso{
+    + Espresso()
+}
+class DeCaf{
+    + DeCaf()
+}
+class LongBlack{
+    + LongBlack()
+}
+class ShortBlack{
+    + ShortBlack()
+}
+class Milk{
+    + Milk(Drink obj)
+}
+class Soy{
+    + Soy(Drink obj)
+}
+class Chocolate{
+    + Chocolate(Drink obj)
+}
+class CofferBar{
+
+}
+
+Coffee --|> Drink
+Decorator --|> Drink
+Decorator *-- Drink
+
+Chocolate --|> Decorator
+Milk --|> Decorator
+Soy --|> Decorator
+
+DeCaf --|> Coffee
+Espresso --|> Coffee
+LongBlack --|> Coffee
+ShortBlack --|> Coffee
+
+@enduml
